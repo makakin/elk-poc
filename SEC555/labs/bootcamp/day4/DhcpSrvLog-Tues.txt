@@ -1,0 +1,67 @@
+ID,Date,Time,Description,IP Address,Host Name,MAC Address,User Name, TransactionID, QResult,Probationtime, CorrelationID,Dhcid,VendorClass(Hex),VendorClass(ASCII),UserClass(Hex),UserClass(ASCII),RelayAgentInformation,DnsRegError.
+00,06/06/17,12:24:41,Started,,,,,0,6,,,,,,,,,0
+55,06/06/17,12:24:41,Authorized(servicing),,sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,12:33:04,DNS Update Request,192.168.2.52,assistant01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,12:33:04,Renew,192.168.2.52,assistant01.sec555.com,000C29F8067B,,1601996015,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,12:33:04,DNS Update Successful,192.168.2.52,assistant01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,12:33:09,DNS Update Request,192.168.0.92,CFO.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,12:33:09,Renew,192.168.0.92,CFO.sec555.com,000C29A63523,,3638024443,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,12:33:09,DNS Update Successful,192.168.0.92,CFO.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,12:33:31,DNS Update Request,192.168.1.52,IT01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,12:33:31,Renew,192.168.1.52,IT01.sec555.com,000C29864EFC,,3182866731,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,12:33:31,DNS Update Successful,192.168.1.52,IT01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,12:33:45,DNS Update Request,192.168.1.50,IT02.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,12:33:45,Renew,192.168.1.50,IT02.sec555.com,000C2929DF23,,2582071637,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,12:33:45,DNS Update Successful,192.168.1.50,IT02.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,12:33:53,DNS Update Request,192.168.1.51,IT03.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,12:33:53,Renew,192.168.1.51,IT03.sec555.com,000C29128B03,,3656979469,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,12:33:53,DNS Update Successful,192.168.1.51,IT03.sec555.com,,,0,6,,,,,,,,,0
+24,06/06/17,13:24:41,Database Cleanup Begin,,,,,0,6,,,,,,,,,0
+30,06/06/17,13:24:41,DNS Update Request,192.168.0.53,accounting01.sec555.com,,,0,6,,,,,,,,,0
+17,06/06/17,13:24:41,DNS record not deleted,192.168.0.53,,,,0,6,,,,,,,,,0
+16,06/06/17,13:24:41,Deleted,192.168.3.52,,,,0,6,,,,,,,,,0
+25,06/06/17,13:24:41,0 leases expired and 2 leases deleted,,,,,0,6,,,,,,,,,0
+25,06/06/17,13:24:41,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+32,06/06/17,13:24:41,DNS Update Successful,192.168.0.53,accounting01.sec555.com,,,0,6,,,,,,,,,0
+24,06/06/17,14:24:41,Database Cleanup Begin,,,,,0,6,,,,,,,,,0
+25,06/06/17,14:24:41,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+25,06/06/17,14:24:41,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+50,06/06/17,15:25:36,Unreachable Domain,,sec555.com,,,0,6,,,,,,,,,8250
+24,06/06/17,15:25:37,Database Cleanup Begin,,,,,0,6,,,,,,,,,0
+25,06/06/17,15:25:37,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+25,06/06/17,15:25:37,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+11,06/06/17,16:02:45,Renew,192.168.1.54,wormtongue.sec555.com,000C2979158C,,1566833935,0,,,,,,,,,0
+30,06/06/17,16:03:29,DNS Update Request,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:03:29,Renew,192.168.0.50,accounting01.sec555.com,000C297E5BEC,,3950103241,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:03:29,DNS Update Successful,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:03:47,DNS Update Request,192.168.2.52,assistant01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:03:47,Renew,192.168.2.52,assistant01.sec555.com,000C29F8067B,,2491622743,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:03:47,DNS Update Successful,192.168.2.52,assistant01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:04:01,DNS Update Request,192.168.1.52,IT01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:04:01,Renew,192.168.1.52,IT01.sec555.com,000C29864EFC,,1552835413,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:04:01,DNS Update Successful,192.168.1.52,IT01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:04:12,DNS Update Request,192.168.1.51,IT03.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:04:12,Renew,192.168.1.51,IT03.sec555.com,000C29128B03,,1811186647,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:04:12,DNS Update Successful,192.168.1.51,IT03.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:08:39,DNS Update Request,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:08:39,Renew,192.168.0.50,accounting01.sec555.com,000C297E5BEC,,3763817978,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:08:39,DNS Update Successful,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:12:34,DNS Update Request,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:12:34,Renew,192.168.0.50,accounting01.sec555.com,000C297E5BEC,,615441090,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:12:34,DNS Update Successful,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:15:25,DNS Update Request,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:15:25,Renew,192.168.0.50,accounting01.sec555.com,000C297E5BEC,,434502846,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:15:25,DNS Update Successful,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:15:45,DNS Update Request,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:15:45,Renew,192.168.0.50,accounting01.sec555.com,000C297E5BEC,,4037204332,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:15:45,DNS Update Successful,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+30,06/06/17,16:16:54,DNS Update Request,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+11,06/06/17,16:16:54,Renew,192.168.0.50,accounting01.sec555.com,000C297E5BEC,,3012616277,0,,,,0x4D53465420352E30,MSFT 5.0,,,,0
+32,06/06/17,16:16:54,DNS Update Successful,192.168.0.50,accounting01.sec555.com,,,0,6,,,,,,,,,0
+24,06/06/17,16:25:38,Database Cleanup Begin,,,,,0,6,,,,,,,,,0
+25,06/06/17,16:25:38,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+25,06/06/17,16:25:38,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+24,06/06/17,17:25:38,Database Cleanup Begin,,,,,0,6,,,,,,,,,0
+25,06/06/17,17:25:38,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+25,06/06/17,17:25:38,0 leases expired and 0 leases deleted,,,,,0,6,,,,,,,,,0
+01,06/06/17,17:43:17,Stopped,,,,,0,6,,,,,,,,,0
