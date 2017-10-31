@@ -1,0 +1,23 @@
+# Create private key + request
+openssl req -new -config node.cfg -keyout priv.key -out elk.req
+
+# Verify the request looks right
+openssl req -in elk.req -noout -text
+
+#########################################################
+## Transfer to CA
+#########################################################
+
+# Verify request
+certutil elk.req
+
+# Submit request
+certutil -attrib "CertificateTemplate:webserver" -submit elk.req
+
+########################################################
+## Transfering files to Core instances using PS> 
+########################################################
+
+$sess = New-PSSession -ComputerName xxx.com
+Copy-Item -path C:\PS_TEMP\elk.req -Destination C:\elk.req -ToSession $sess
+Copy-Item -path C:\elk.cer -Destination C:\PS_TEMP\elk.cer -FromSession $sess
