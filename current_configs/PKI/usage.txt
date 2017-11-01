@@ -12,7 +12,7 @@ openssl req -in elk.req -noout -text
 certutil elk.req
 
 # Submit request
-certutil -attrib "CertificateTemplate:SearchguardNodeCertificate" -submit elk.req
+certreq -attrib "CertificateTemplate:SearchguardNodeCertificate" -submit elk.req
 
 ########################################################
 ## Transfering files to Core instances using PS> 
