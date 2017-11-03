@@ -20,7 +20,7 @@ cluster.name: elk
 #
 # Use a descriptive name for the node:
 #
-node.name: elk2
+node.name: nodex
 #
 # Add custom attributes to the node:
 #
@@ -66,11 +66,11 @@ network.host: 0.0.0.0
 # The default list of hosts is ["127.0.0.1", "[::1]"]
 #
 #discovery.zen.ping.unicast.hosts: ["host1", "host2"]
-discovery.zen.ping.unicast.hosts: ["elk1.core.gocolumbiamo.com", "elk2.core.gocolumbiamo.com"]
-#
+discovery.zen.ping.unicast.hosts: ["elk1.gcm.com", "elk2.gcm.com", "elk3.gcm.com"]
+
 # Prevent the "split brain" by configuring the majority of nodes (total number of master-eligible nodes / 2 + 1):
 #
-#discovery.zen.minimum_master_nodes: 3
+discovery.zen.minimum_master_nodes: 2
 #
 # For more information, consult the zen discovery module documentation.
 #
@@ -78,7 +78,10 @@ discovery.zen.ping.unicast.hosts: ["elk1.core.gocolumbiamo.com", "elk2.core.goco
 #
 # Block initial recovery after a full cluster restart until N nodes are started:
 #
-#gateway.recover_after_nodes: 3
+gateway.recover_after_nodes: 2
+gateway.expected_nodes: 3
+gateway.recover_after_time: 5m
+
 #
 # For more information, consult the gateway module documentation.
 #
@@ -87,6 +90,11 @@ discovery.zen.ping.unicast.hosts: ["elk1.core.gocolumbiamo.com", "elk2.core.goco
 # Require explicit names when deleting indices:
 #
 #action.destructive_requires_name: true
+#
+# END YAML
+# BEGIN SG
+#
+
 #############################################################################################
 #                                     SEARCH GUARD SSL                                      #
 #                                       Configuration                                       #
@@ -128,11 +136,11 @@ searchguard.ssl.transport.enabled: true
 # This, for example, makes it pretty easy to configure letsencrypt certificates.
 
 # Relative path to the certificates key file (PKCS #8), must be placed under the config/ dir
-searchguard.ssl.transport.pemkey_filepath: pki/elk2-priv.pkcs8
+searchguard.ssl.transport.pemkey_filepath: pki/key.pksc8
 # Key password (omit this setting if the key has no password)
 #searchguard.ssl.transport.pemkey_password: "password"
 # X509 node certificate chain in PEM format, must be placed under the config/ dir
-searchguard.ssl.transport.pemcert_filepath: pki/elk2-pub.cer
+searchguard.ssl.transport.pemcert_filepath: pki/pub.cer
 # Trusted certificates
 searchguard.ssl.transport.pemtrustedcas_filepath: pki/cert-chain.pem
 
@@ -182,11 +190,11 @@ searchguard.ssl.http.enabled: true
 # This, for example, makes it pretty easy to configure letsencrypt certificates.
 
 # Relative path to the certificates key file (PKCS #8), must be placed under the config/ dir
-searchguard.ssl.http.pemkey_filepath: pki/elk2-priv.pkcs8
+searchguard.ssl.http.pemkey_filepath: pki/key.pksc8
 # Key password (omit this setting if the key has no password)
 #searchguard.ssl.http.pemkey_password: "password"
 # X509 node certificate chain in PEM format, must be placed under the config/ dir
-searchguard.ssl.http.pemcert_filepath: pki/elk2-pub.cer
+searchguard.ssl.http.pemcert_filepath: pki/pub.cer
 # Trusted certificates
 searchguard.ssl.http.pemtrustedcas_filepath: pki/cert-chain.pem
 
