@@ -33,7 +33,7 @@ gateway.expected_nodes: 3
 
 # If the expected number of nodes is not achieved, then the recovery process 
 # waits for the configured amount of time before trying to recover regardless.
-gateway.recover_after_time: 5m
+gateway.recover_after_time: 10m
 
 # recover as long as this many nodes have joined the cluster
 gateway.recover_after_nodes: 2
