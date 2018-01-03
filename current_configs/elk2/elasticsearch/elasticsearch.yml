@@ -6,7 +6,7 @@ cluster.name: elk
 
 # ------------------------------------ Node ------------------------------------
 # Use a descriptive name for the node:
-node.name: elk1
+node.name: elk2
 
 # Lock the memory on startup:
 #
@@ -61,13 +61,13 @@ searchguard.ssl.transport.enforce_hostname_verification: false
 #searchguard.ssl.transport.enable_openssl_if_available: false
 
 # Relative path to the certificates key file (PKCS #8), must be placed under the config/ dir
-searchguard.ssl.transport.pemkey_filepath: pki/elk1-priv.pkcs8
+searchguard.ssl.transport.pemkey_filepath: pki/elk2-priv.pkcs8
 
 # Key password (omit this setting if the key has no password)
 #searchguard.ssl.transport.pemkey_password: "password"
 
 # X509 node certificate chain in PEM format, must be placed under the config/ dir
-searchguard.ssl.transport.pemcert_filepath: pki/elk1-pub.cer
+searchguard.ssl.transport.pemcert_filepath: pki/elk2-pub.cer
 
 # Trusted certificates
 searchguard.ssl.transport.pemtrustedcas_filepath: pki/cert-chain.pem
@@ -82,13 +82,13 @@ searchguard.ssl.http.enabled: true
 # you can also use X.509 PEM certificates and PKCS #8 keys.
 
 # Relative path to the certificates key file (PKCS #8), must be placed under the config/ dir
-searchguard.ssl.http.pemkey_filepath: pki/elk1-priv.pkcs8
+searchguard.ssl.http.pemkey_filepath: pki/elk2-priv.pkcs8
 
 # Key password (omit this setting if the key has no password)
 #searchguard.ssl.http.pemkey_password: "password"
 
 # X509 node certificate chain in PEM format, must be placed under the config/ dir
-searchguard.ssl.http.pemcert_filepath: pki/elk1-pub.cer
+searchguard.ssl.http.pemcert_filepath: pki/elk2-pub.cer
 
 # Trusted certificates
 searchguard.ssl.http.pemtrustedcas_filepath: pki/cert-chain.pem
