@@ -1,0 +1,105 @@
+# ======================== Elasticsearch Configuration =========================
+# ---------------------------------- Cluster -----------------------------------
+#
+# Use a descriptive name for your cluster:
+cluster.name: elk
+
+# ------------------------------------ Node ------------------------------------
+# Use a descriptive name for the node:
+node.name: kibana
+
+# This node will not be a [master,data,ingest] node, but acts as a
+# "search load balancer" (fetching data from nodes, aggregating results, etc.)
+node.master: false
+node.data: false
+node.ingest: false
+
+# Lock the memory on startup:
+#
+bootstrap.memory_lock: true
+
+# ---------------------------------- Network -----------------------------------
+# Set the bind address to a specific IP (IPv4 or IPv6):
+network.host: 0.0.0.0
+
+# --------------------------------- Discovery ----------------------------------
+discovery.zen.ping.unicast.hosts: ["elk1.com", "elk2.com", "elk3.com"]
+
+# Prevent the "split brain" by configuring the majority of nodes 
+# (total number of master-eligible nodes / 2 + 1):
+discovery.zen.minimum_master_nodes: 2
+
+# ---------------------------------- Gateway -----------------------------------
+# Block initial recovery after a full cluster restart until N nodes are started:
+# prevents thrashing on the storage backend and rapid replica refactoring
+
+# The number of nodes that are expected to be in the cluster. Recovery of local
+# shards will start as soon as the expected number of nodes have joined the cluster
+gateway.expected_nodes: 3
+
+# If the expected number of nodes is not achieved, then the recovery process 
+# waits for the configured amount of time before trying to recover regardless.
+gateway.recover_after_time: 10m
+
+# recover as long as this many nodes have joined the cluster
+gateway.recover_after_nodes: 2
+
+#############################################################################################
+#                                     SEARCH GUARD SSL                                      #
+#                                       Configuration                                       #
+#############################################################################################
+
+
+#############################################################################################
+# Transport layer SSL                                                                       #
+#                                                                                           #
+#############################################################################################
+# Enable or disable node-to-node ssl encryption (default: true)
+searchguard.ssl.transport.enabled: true
+
+# Enforce hostname verification (default: true)
+searchguard.ssl.transport.enforce_hostname_verification: false
+
+# If hostname verification is enabled specify if hostname should be resolved (default: true)
+#searchguard.ssl.transport.resolve_hostname: true
+
+# Use native Open SSL instead of JDK SSL if available (default: true)
+#searchguard.ssl.transport.enable_openssl_if_available: false
+
+# Relative path to the certificates key file (PKCS #8), must be placed under the config/ dir
+searchguard.ssl.transport.pemkey_filepath: pki/kibana-priv.pkcs8
+
+# Key password (omit this setting if the key has no password)
+#searchguard.ssl.transport.pemkey_password: "password"
+
+# X509 node certificate chain in PEM format, must be placed under the config/ dir
+searchguard.ssl.transport.pemcert_filepath: pki/kibana-pub.cer
+
+# Trusted certificates
+searchguard.ssl.transport.pemtrustedcas_filepath: pki/cert-chain.pem
+
+#############################################################################################
+# HTTP/REST layer SSL                                                                       #
+#                                                                                           #
+#############################################################################################
+# Enable or disable rest layer security - https, (default: false)
+searchguard.ssl.http.enabled: true
+
+# you can also use X.509 PEM certificates and PKCS #8 keys.
+
+# Relative path to the certificates key file (PKCS #8), must be placed under the config/ dir
+searchguard.ssl.http.pemkey_filepath: pki/kibana-priv.pkcs8
+
+# Key password (omit this setting if the key has no password)
+#searchguard.ssl.http.pemkey_password: "password"
+
+# X509 node certificate chain in PEM format, must be placed under the config/ dir
+searchguard.ssl.http.pemcert_filepath: pki/kibana-pub.cer
+
+# Trusted certificates
+searchguard.ssl.http.pemtrustedcas_filepath: pki/cert-chain.pem
+
+searchguard.authcz.admin_dn:
+  - CN=SGAdmin,O=City of Columbia MO,L=Columbia,ST=Missouri,C=US
+
+#searchguard.disabled: true
