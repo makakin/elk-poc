@@ -1,0 +1,357 @@
+[
+  {
+    "_id": "Complete-Lab-2.1-DNS",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 2.1 - DNS Layout",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "query",
+        "query_type_name",
+        "highest_registered_domain",
+        "subdomain",
+        "source_ip",
+        "destination_ip",
+        "answers"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab2.1-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"analyze_wildcard\": true,\n      \"query\": \"*\"\n    }\n  },\n  \"filter\": [],\n  \"highlight\": {\n    \"pre_tags\": [\n      \"@kibana-highlighted-field@\"\n    ],\n    \"post_tags\": [\n      \"@/kibana-highlighted-field@\"\n    ],\n    \"fields\": {\n      \"*\": {}\n    },\n    \"require_field_match\": false,\n    \"fragment_size\": 2147483647\n  }\n}"
+      }
+    }
+  },
+  {
+    "_id": "Complete-Lab-2.1-Fuzzy-search-internal-domains",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 2.1 Step 5 - DNS Internal phishing domain matches",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "_source"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab2.1-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"labmeinc.com~\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": [],\n  \"highlight\": {\n    \"pre_tags\": [\n      \"@kibana-highlighted-field@\"\n    ],\n    \"post_tags\": [\n      \"@/kibana-highlighted-field@\"\n    ],\n    \"fields\": {\n      \"*\": {}\n    },\n    \"require_field_match\": false,\n    \"fragment_size\": 2147483647\n  }\n}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-G-Windows-Events",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 3.1 G - Windows Events",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "hostname",
+        "event_id",
+        "channel",
+        "source_name",
+        "category",
+        "message"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-Windows",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 3.2 - Windows",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "event_id",
+        "hostname",
+        "channel",
+        "category",
+        "user",
+        "message"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"query\":\"-event_id:5156\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Logons-Windows-Domain-Controller-Logons",
+    "_type": "search",
+    "_source": {
+      "title": "Logons - Windows Domain Controller Logons",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "user",
+        "client_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4624 AND hostname:DC* AND client_ip:1* -tags:machine\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"lab3.3-complete\",\"key\":\"impersonationlevel\",\"value\":\"%%1840\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"impersonationlevel\":{\"query\":\"%%1840\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Logons-Windows-Impersonation-Events",
+    "_type": "search",
+    "_source": {
+      "title": "Logons - Windows Impersonation Events",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "_source"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4624\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"lab3.3-complete\",\"key\":\"impersonationlevel\",\"value\":\"%%1833\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"impersonationlevel\":{\"query\":\"%%1833\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Logons-Windows-Delegation-Events",
+    "_type": "search",
+    "_source": {
+      "title": "Logons - Windows Delegation Events",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "_source"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4624\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"lab3.3-complete\",\"key\":\"impersonationlevel\",\"value\":\"%%1840\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"impersonationlevel\":{\"query\":\"%%1840\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Windows-Saved-Search",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 3.3 - Windows Saved Search",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "hostname",
+        "event_id",
+        "user",
+        "logontype",
+        "client_ip",
+        "target_domain_name"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-DHCP-Logs",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 4.1 - DHCP Logs",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "Hostname",
+        "ip",
+        "description",
+        "event"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete\",\"query\":{\"query_string\":{\"query\":\"type:dhcp\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Search",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 4.1 - Search",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "type",
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete\",\"query\":{\"query_string\":{\"query\":\"-type:dhcp\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-with-base64-encoding",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell with base64 encoding",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "Hostname",
+        "command_name",
+        "base64_decoded",
+        "shell_host_application",
+        "shell_host_application_length"
+      ],
+      "sort": [
+        "@timestamp",
+        "asc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"(event_id:4103 OR event_id:4104) AND _exists_:base64_decoded\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-Script-Block-Logs",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell Script Block Logs",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "Hostname",
+        "ScriptBlockId",
+        "ScriptBlockText",
+        "task",
+        "message_number",
+        "message_total"
+      ],
+      "sort": [
+        "@timestamp",
+        "asc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"event_id:4104\"}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.2-Audit-Alert",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 5.2 - Audit Alert",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "uid",
+        "gid",
+        "exe",
+        "key"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.2-complete\",\"query\":{\"query_string\":{\"query\":\"type:audit\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.2-Honeypot-Alert",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 5.2 - Honeypot Alert",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "host",
+        "source_ip"
+      ],
+      "sort": [
+        "@timestamp",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.2-complete\",\"query\":{\"query_string\":{\"query\":\"type:honeypot\",\"analyze_wildcard\":true}},\"filter\":[],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Flow-Data",
+    "_type": "search",
+    "_source": {
+      "title": "Lab 4.3 - Flow Data",
+      "description": "",
+      "hits": 0,
+      "columns": [
+        "source_ip",
+        "source_port",
+        "destination_ip",
+        "destination_port",
+        "duration",
+        "bytes_to_client",
+        "bytes_to_server",
+        "byte_ratio_client",
+        "byte_ratio_server"
+      ],
+      "sort": [
+        "duration",
+        "desc"
+      ],
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.3-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"lab4.3-complete\",\"key\":\"event_type\",\"value\":\"flow\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"event_type\":{\"query\":\"flow\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  }
+]

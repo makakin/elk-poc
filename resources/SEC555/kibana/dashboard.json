@@ -1,0 +1,226 @@
+[
+  {
+    "_id": "Lab-2.1-DNS-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 2.1 - DNS Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"columns\":[\"query\",\"query_type_name\",\"highest_registered_domain\",\"subdomain\",\"source_ip\",\"destination_ip\",\"answers\"],\"id\":\"Complete-Lab-2.1-DNS\",\"panelIndex\":11,\"row\":8,\"size_x\":12,\"size_y\":6,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Lab-2.1-Step-2-DNS-Query-Type-by-Domain\",\"panelIndex\":13,\"row\":1,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-2.1-Step-3a-DNS-Frequency-Scores-on-Parent-Domain\",\"panelIndex\":14,\"row\":4,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Lab-2.1-Step-3b-DNS-Frequency-Scores-on-Subdomain-Domain\",\"panelIndex\":15,\"row\":4,\"size_x\":6,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Lab-2.1-Step-1-DNS-Sinkhole-Domains\",\"panelIndex\":17,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"id\":\"Lab-2.1-Step-4-DNS-Fuzzy-Domain-Matches\",\"type\":\"visualization\",\"panelIndex\":18,\"size_x\":3,\"size_y\":3,\"col\":7,\"row\":1}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-12\":{\"vis\":{\"legendOpen\":false}},\"P-17\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-12T04:00:00.000Z",
+      "timeFrom": "2017-04-11T05:00:00.000Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-H-Windows-Event-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 3.1 H - Windows Event Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-3.1-A-Windows-Top-Event-IDs\",\"panelIndex\":7,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"Lab-3.1-B-Windows-Logs-by-User\",\"panelIndex\":8,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-3.1-C-Windows-Events-by-Channel\",\"panelIndex\":9,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"Lab-3.1-D-Windows-Events-by-Source-Name\",\"panelIndex\":10,\"row\":4,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Lab-3.1-E-Windows-Events-by-Category\",\"panelIndex\":11,\"row\":4,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Lab-3.1-F-Total-Logs\",\"type\":\"visualization\",\"panelIndex\":12,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":1},{\"id\":\"Lab-3.1-G-Windows-Events\",\"type\":\"search\",\"panelIndex\":13,\"size_x\":12,\"size_y\":2,\"col\":1,\"row\":8,\"columns\":[\"hostname\",\"event_id\",\"channel\",\"source_name\",\"category\",\"message\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-8\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-13T18:42:10.472Z",
+      "timeFrom": "2017-04-13T16:11:58.534Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-H-with-Filters-(extra)-Windows-Event-Dashboard-with-Filters-Applied",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 3.1 H with Filters (extra) - Windows Event Dashboard with Filters Applied",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-3.1-A-Windows-Top-Event-IDs\",\"panelIndex\":7,\"row\":1,\"size_x\":5,\"size_y\":3,\"type\":\"visualization\"},{\"col\":6,\"id\":\"Lab-3.1-B-Windows-Logs-by-User\",\"panelIndex\":8,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-3.1-C-Windows-Events-by-Channel\",\"panelIndex\":9,\"row\":4,\"size_x\":5,\"size_y\":4,\"type\":\"visualization\"},{\"col\":6,\"id\":\"Lab-3.1-D-Windows-Events-by-Source-Name\",\"panelIndex\":10,\"row\":4,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Lab-3.1-F-Total-Logs\",\"type\":\"visualization\",\"panelIndex\":11,\"size_x\":3,\"size_y\":3,\"col\":10,\"row\":1},{\"id\":\"Lab-3.1-E-Windows-Events-by-Category\",\"type\":\"visualization\",\"panelIndex\":12,\"size_x\":3,\"size_y\":4,\"col\":10,\"row\":4},{\"id\":\"Lab-3.1-G-Windows-Events\",\"type\":\"search\",\"panelIndex\":13,\"size_x\":12,\"size_y\":2,\"col\":1,\"row\":8,\"columns\":[\"hostname\",\"event_id\",\"channel\",\"source_name\",\"category\",\"message\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-8\":{\"vis\":{\"legendOpen\":false}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-13T18:42:10.472Z",
+      "timeFrom": "2017-04-13T16:11:58.534Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"$state\":{\"store\":\"appState\"},\"meta\":{\"alias\":null,\"disabled\":false,\"index\":\"lab3.1-complete\",\"key\":\"event_id\",\"negate\":true,\"value\":\"4,656\"},\"query\":{\"match\":{\"event_id\":{\"query\":4656,\"type\":\"phrase\"}}}},{\"meta\":{\"index\":\"lab3.1-complete\",\"key\":\"category.raw\",\"value\":\"Filtering Platform Connection\",\"disabled\":false,\"negate\":true,\"alias\":null},\"query\":{\"match\":{\"category.raw\":{\"query\":\"Filtering Platform Connection\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}},{\"query\":{\"query_string\":{\"query\":\"-(event_id:4624 AND (user:\\\"ANONYMOUS LOGON\\\" OR tags:service_account OR tags:machine)) AND -(source_name:Microsoft-Windows-Sysmon AND (image:\\\"C:\\\\\\\\Program Files\\\\\\\\*\\\" OR image:\\\"C:\\\\\\\\Windows\\\\\\\\System32\\\\\\\\*\\\" OR sourceimage:\\\"C:\\\\\\\\Windows\\\\\\\\system32\\\\\\\\*\\\" OR currentdirectory:\\\"C:\\\\\\\\Windows\\\\\\\\system32\\\\\\\\*\\\"))\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.2-HTTP-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 2.2 - HTTP Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"columns\":[\"method\",\"virtual_host\",\"uri\",\"uri_length\",\"reverse_dns\",\"destination_geo.asn\",\"destination_geo.country_name\"],\"id\":\"HTTP\",\"panelIndex\":4,\"row\":7,\"size_x\":12,\"size_y\":3,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":1,\"id\":\"Lab-2.2-Step-1-HTTP-Status-Code-200-by-Source-IP\",\"panelIndex\":7,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-2.2-Step-1-HTTP-Status-Code-404-by-Source-IP\",\"panelIndex\":8,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Lab-2.2-Step-1-HTTP-Methods-by-Virtual-Host\",\"panelIndex\":9,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-2.2-Step-2-HTTP-ASN-and-Country\",\"panelIndex\":10,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-2.2-Step-2-HTTP-Naked-IPs\",\"panelIndex\":11,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.3-x509-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 2.3 - x509 Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-2.3-Frequency-Score-of-Common-Name\",\"panelIndex\":1,\"row\":1,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":4,\"id\":\"Lab-2.3-Frequency-Score-of-Issuer-Common-Name\",\"panelIndex\":2,\"row\":1,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"certificate_common_name\",\"issuer_common_name\",\"server_name\",\"certificate_number_days_valid\",\"certificate_key_length\",\"certificate_key_type\",\"certificate_key_algorithm\"],\"id\":\"HTTPS\",\"panelIndex\":3,\"row\":5,\"size_x\":12,\"size_y\":4,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":7,\"id\":\"Lab-2.3-x509-Missing-Fields\",\"panelIndex\":4,\"row\":1,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Lab-2.3-HTTPS-Metric\",\"panelIndex\":5,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"id\":\"Lab-2.3-Most-common-Issuers\",\"type\":\"visualization\",\"panelIndex\":6,\"size_x\":3,\"size_y\":2,\"col\":10,\"row\":3}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{\"P-1\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-2\":{\"spy\":{\"mode\":{\"fill\":false,\"name\":null}}},\"P-4\":{\"vis\":{\"legendOpen\":false}},\"P-6\":{\"spy\":{\"mode\":{\"name\":null,\"fill\":false}}}}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2018-01-01T06:00:00.000Z",
+      "timeFrom": "2012-01-01T06:00:00.000Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-Windows-Events-to-Monitor",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 3.2 - Windows Events to Monitor",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-3.2-New-Service-Creation\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-3.2-New-Scheduled-Task\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Lab-3.2-Cleared-Logs\",\"panelIndex\":3,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-3.2-New-Local-User(s)\",\"panelIndex\":4,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Lab-3.2-Member-Added-to-Local-Group\",\"panelIndex\":5,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-3.2-Monitored-Events-by-Hostname\",\"panelIndex\":6,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"event_id\",\"hostname\",\"channel\",\"category\",\"user\",\"message\"],\"id\":\"Lab-3.2-Windows\",\"panelIndex\":7,\"row\":7,\"size_x\":12,\"size_y\":5,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-24T00:00:53.731Z",
+      "timeFrom": "2017-04-21T21:09:25.948Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Logon-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 3.3 - Logon Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-3.3-Failed-Logons\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-3.3-Failed-Logons-over-Time\",\"panelIndex\":2,\"row\":1,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-3.3-Successful-Logons\",\"panelIndex\":3,\"row\":5,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-3.3-Successful-Logons-over-Time\",\"panelIndex\":4,\"row\":5,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Lab-3.3-Logon-Timeline-Plotting\",\"panelIndex\":8,\"row\":5,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Lab-3.3-User-Logon-Map\",\"panelIndex\":9,\"row\":1,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Lab-3.3-Windows-Saved-Search\",\"type\":\"search\",\"panelIndex\":10,\"size_x\":12,\"size_y\":4,\"col\":1,\"row\":9,\"columns\":[\"host\",\"hostname\",\"event_id\",\"user\",\"logontype\",\"client_ip\",\"target_domain_name\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-25T20:37:18.629Z",
+      "timeFrom": "2017-04-25T19:36:55.420Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"(tags:logon OR tags:logon_failure)\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Asset-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 4.1 - Asset Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-4.1-Default-Time-Servers\",\"panelIndex\":1,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Lab-4.1-Systems-Using-Internal-Time-Server\",\"panelIndex\":2,\"row\":1,\"size_x\":3,\"size_y\":5,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Lab-4.1-All-Internal-Systems\",\"panelIndex\":3,\"row\":1,\"size_x\":3,\"size_y\":8,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-4.1-DHCP-Logs\",\"panelIndex\":4,\"row\":4,\"size_x\":4,\"size_y\":5,\"type\":\"visualization\"},{\"col\":4,\"id\":\"Lab-4.1-Systems-with-the-Most-Vulnerablities\",\"panelIndex\":6,\"row\":1,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Lab-4.1-Vulnerabilities-by-Risk-Factor\",\"panelIndex\":7,\"row\":6,\"size_x\":3,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-4.1-Scanned-with-Credentials\",\"panelIndex\":8,\"row\":4,\"size_x\":2,\"size_y\":5,\"type\":\"visualization\"},{\"col\":7,\"columns\":[\"Hostname\",\"ip\",\"description\",\"event\"],\"id\":\"Lab-4.1-DHCP-Logs\",\"panelIndex\":10,\"row\":9,\"size_x\":6,\"size_y\":4,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"id\":\"Lab-4.1-Search\",\"type\":\"search\",\"panelIndex\":12,\"size_x\":6,\"size_y\":4,\"col\":1,\"row\":9,\"columns\":[\"host\",\"type\",\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\"],\"sort\":[\"@timestamp\",\"desc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-27T04:59:00.000Z",
+      "timeFrom": "2017-04-26T05:00:00.000Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-4.2-PowerShell-Commands-by-Host\",\"panelIndex\":3,\"row\":1,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"col\":11,\"id\":\"Lab-4.2-cmdlets\",\"panelIndex\":4,\"row\":5,\"size_x\":2,\"size_y\":5,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-4.2-PowerShell-Module-Logs\",\"panelIndex\":5,\"row\":3,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-4.2-PowerShell-Script-Block-Logs\",\"panelIndex\":6,\"row\":1,\"size_x\":2,\"size_y\":2,\"type\":\"visualization\"},{\"col\":7,\"columns\":[\"host\",\"Hostname\",\"command_name\",\"base64_decoded\",\"shell_host_application\",\"shell_host_application_length\"],\"id\":\"Lab-4.2-PowerShell-with-base64-encoding\",\"panelIndex\":7,\"row\":1,\"size_x\":6,\"size_y\":4,\"sort\":[\"@timestamp\",\"asc\"],\"type\":\"search\"},{\"col\":7,\"id\":\"Lab-4.2-Module-Use-over-Time\",\"panelIndex\":8,\"row\":5,\"size_x\":4,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Lab-4.2-PowerShell-Script-Block-Logs\",\"type\":\"search\",\"panelIndex\":9,\"size_x\":6,\"size_y\":5,\"col\":1,\"row\":5,\"columns\":[\"host\",\"Hostname\",\"ScriptBlockId\",\"ScriptBlockText\",\"task\",\"message_number\",\"message_total\"],\"sort\":[\"@timestamp\",\"asc\"]}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-04-29T18:07:13.610Z",
+      "timeFrom": "2017-04-29T17:59:28.631Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.2-Tripwire-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 5.2 - Tripwire Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"columns\":[\"host\",\"uid\",\"gid\",\"exe\",\"key\"],\"id\":\"Lab-5.2-Audit-Alert\",\"panelIndex\":1,\"row\":1,\"size_x\":6,\"size_y\":3,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"},{\"col\":7,\"columns\":[\"host\",\"source_ip\"],\"id\":\"Lab-5.2-Honeypot-Alert\",\"panelIndex\":2,\"row\":1,\"size_x\":6,\"size_y\":3,\"sort\":[\"@timestamp\",\"desc\"],\"type\":\"search\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": false,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-NetFlow-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 4.3 - NetFlow Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-4.3-Connections-by-Duration\",\"panelIndex\":1,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-4.3-Hosts-with-Most-Bytes-Downloaded\",\"panelIndex\":2,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":5,\"id\":\"Lab-4.3-Hosts-with-Most-Bytes-Uploaded\",\"panelIndex\":3,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":9,\"id\":\"Lab-4.3-Outbound-Connections-by-Port\",\"panelIndex\":4,\"row\":1,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-4.3-Top-Talkers-by-#-of-Connections\",\"panelIndex\":5,\"row\":4,\"size_x\":4,\"size_y\":3,\"type\":\"visualization\"},{\"col\":1,\"columns\":[\"source_ip\",\"source_port\",\"destination_ip\",\"destination_port\",\"duration\",\"bytes_to_client\",\"bytes_to_server\",\"byte_ratio_client\",\"byte_ratio_server\"],\"id\":\"Lab-4.3-Flow-Data\",\"panelIndex\":6,\"row\":7,\"size_x\":12,\"size_y\":3,\"sort\":[\"duration\",\"desc\"],\"type\":\"search\"}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-05-02T21:43:11.088Z",
+      "timeFrom": "2017-05-02T13:45:36.134Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Alert-Dashboard",
+    "_type": "dashboard",
+    "_source": {
+      "title": "Lab 5.1 - Alert Dashboard",
+      "hits": 0,
+      "description": "",
+      "panelsJSON": "[{\"col\":1,\"id\":\"Lab-5.1-Top-Signatures\",\"panelIndex\":1,\"row\":3,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":1,\"id\":\"Lab-5.1-Signatures-by-Source-and-Dest\",\"panelIndex\":2,\"row\":5,\"size_x\":6,\"size_y\":5,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Lab-5.1-Signatures-by-Source-Port\",\"panelIndex\":3,\"row\":8,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Lab-5.1-Signatures-by-Destination-Port\",\"panelIndex\":4,\"row\":5,\"size_x\":6,\"size_y\":3,\"type\":\"visualization\"},{\"col\":7,\"id\":\"Lab-5.1-#-of-Alerts\",\"panelIndex\":5,\"row\":1,\"size_x\":3,\"size_y\":2,\"type\":\"visualization\"},{\"col\":10,\"id\":\"Lab-5.1-Signatures-by-Count\",\"panelIndex\":6,\"row\":1,\"size_x\":3,\"size_y\":4,\"type\":\"visualization\"},{\"id\":\"Lab-5.1-Alerts-over-Time-by-Destination\",\"type\":\"visualization\",\"panelIndex\":7,\"size_x\":6,\"size_y\":2,\"col\":1,\"row\":1},{\"id\":\"Lab-5.1-Alerts-over-Time-by-Source\",\"type\":\"visualization\",\"panelIndex\":8,\"size_x\":6,\"size_y\":2,\"col\":4,\"row\":3}]",
+      "optionsJSON": "{\"darkTheme\":false}",
+      "uiStateJSON": "{}",
+      "version": 1,
+      "timeRestore": true,
+      "timeTo": "2017-05-03T07:09:46.239Z",
+      "timeFrom": "2017-05-03T06:12:30.486Z",
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}}}]}"
+      }
+    }
+  }
+]

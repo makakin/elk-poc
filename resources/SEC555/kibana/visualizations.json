@@ -1,0 +1,887 @@
+[
+  {
+    "_id": "Lab-2.1-Step-1-DNS-Sinkhole-Domains",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.1 Step 1 - DNS Sinkhole Domains",
+      "visState": "{\"title\":\"Lab 2.1 Step 1 - DNS Sinkhole Domains\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"highest_registered_domain\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Domain\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"source_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"IP\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab2.1-complete\",\"query\":{\"query_string\":{\"query\":\"tags:dns_sinkhole\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.1-Step-2-DNS-Query-Type-by-Domain",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.1 Step 2 - DNS Query Type by Domain",
+      "visState": "{\"title\":\"Complete Lab 2.1 - DNS Query Type by Domain\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"query_type_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Query Type\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"highest_registered_domain\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Domain\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab2.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.1-Step-3b-DNS-Frequency-Scores-on-Subdomain-Domain",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.1 Step 3b - DNS - Frequency Scores on Subdomain Domain",
+      "visState": "{\"title\":\"Complete Lab 2.1 - DNS - Frequency Scores on Subdomain Domain\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"subdomain_frequency_score\",\"size\":50,\"order\":\"asc\",\"orderBy\":\"_term\",\"customLabel\":\"Frequency Score\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"highest_registered_domain\",\"size\":1,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Subdomain\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab2.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.1-Step-3a-DNS-Frequency-Scores-on-Parent-Domain",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.1 Step 3a - DNS Frequency Scores on Parent Domain",
+      "visState": "{\"title\":\"DNS Frequency Scores on Parent Domain\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"parent_domain_frequency_score\",\"size\":10,\"order\":\"asc\",\"orderBy\":\"_term\",\"customLabel\":\"Frequency Score\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"parent_domain.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Parent Domain\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab2.1-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.1-Step-4-DNS-Fuzzy-Domain-Matches",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.1 Step 4 - DNS Fuzzy Domain Matches",
+      "visState": "{\"title\":\"Lab 2.1 Step 5 - DNS Fuzzy Domain Matches\",\"type\":\"health-metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60,\"fontColor\":\"white\",\"invertScale\":true,\"redThreshold\":1,\"yellowThreshold\":0,\"redColor\":\"#fd482f\",\"yellowColor\":\"#ffa500\",\"greenColor\":\"#6dc066\"},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Complete-Lab-2.1-Fuzzy-search-internal-domains",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-C-Windows-Events-by-Channel",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.1 C - Windows Events by Channel",
+      "visState": "{\"title\":\"Lab 3.1 Step 3 - Windows Events by Channel\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"channel.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Channel\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-B-Windows-Logs-by-User",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.1 B - Windows Logs by User",
+      "visState": "{\"title\":\"Lab 3.1 Step 2 - Windows Logs by User\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user\",\"size\":8,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-D-Windows-Events-by-Source-Name",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.1 D - Windows Events by Source Name",
+      "visState": "{\"title\":\"Lab 3.1 Step 4 - Windows Events by Source Name\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_name.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source Name\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-A-Windows-Top-Event-IDs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.1 A - Windows Top Event IDs",
+      "visState": "{\"title\":\"Lab 3.1 Step 1 - Windows Top Event IDs\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"event_id\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Event ID\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-E-Windows-Events-by-Category",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.1 E - Windows Events by Category",
+      "visState": "{\"title\":\"Lab 3.1 Step 5 - Windows Events by Category\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"category.raw\",\"size\":10,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Category\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.1-F-Total-Logs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.1 F - Total Logs",
+      "visState": "{\"aggs\":[{\"id\":\"1\",\"params\":{},\"schema\":\"metric\",\"type\":\"count\"}],\"listeners\":{},\"params\":{\"fontSize\":60,\"handleNoResults\":true},\"title\":\"Lab 3.1 Step F - Total Logs\",\"type\":\"metric\"}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.1-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"*\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.2-Step-1-HTTP-Status-Code-404-by-Source-IP",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.2 Step 1 - HTTP Status Code 404 by Source IP",
+      "visState": "{\"title\":\"Lab 2.2 - HTTP Status Code 404 by Source IP\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"source_ip\",\"size\":3,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source IP\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:http AND status_code:404\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.2-Step-1-HTTP-Status-Code-200-by-Source-IP",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.2 Step 1 - HTTP Status Code 200 by Source IP",
+      "visState": "{\"title\":\"Lab 2.2 - HTTP Status Code 200 by Source IP\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"source_ip\",\"size\":3,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source IP\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:http AND status_code:200\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.2-Step-1-HTTP-Methods-by-Virtual-Host",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.2 Step 1 - HTTP Methods by Virtual Host",
+      "visState": "{\"title\":\"Lab 2.2 - HTTP Methods by Virtual Host\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"method.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Method\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"virtual_host.raw\",\"size\":2,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Virtual Host\"}},{\"id\":\"4\",\"type\":\"date_histogram\",\"schema\":\"bucket\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:http\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.2-Step-2-HTTP-ASN-and-Country",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.2 Step 2 - HTTP ASN and Country",
+      "visState": "{\"title\":\"Lab 2.2 - HTTP ASN and Country\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_geo.asn.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"ASN\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_geo.country_name.raw\",\"size\":3,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Country\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"type:http\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.2-Step-2-HTTP-Naked-IPs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.2 Step 2 - HTTP Naked IPs",
+      "visState": "{\"title\":\"Lab 2.2 - HTTP Naked IPs\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"virtual_host.raw\",\"size\":6,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Virtual Host\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"reverse_dns.raw\",\"size\":1,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Reverse DNS\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:http AND tags:naked_ip\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.3-x509-Missing-Fields",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.3 - x509 Missing Fields",
+      "visState": "{\"title\":\"Lab 2.3 - x509 Missing Fields\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}}},\"label\":\"All x509\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"_missing_:issuer_organization\",\"analyze_wildcard\":true}}},\"label\":\"Missing Organization\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"_missing_:issuer_organization_unit\",\"analyze_wildcard\":true}}},\"label\":\"Missing Organization Unit\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"_missing_:issuer_locality\",\"analyze_wildcard\":true}}},\"label\":\"Missing Locality\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"_missing_:issuer_state\",\"analyze_wildcard\":true}}},\"label\":\"Missing State\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:x509\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.3-Frequency-Score-of-Issuer-Common-Name",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.3 - Frequency Score of Issuer Common Name",
+      "visState": "{\"title\":\"Lab 2.3 - Frequency Score of Issuer Common Name\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"min\",\"schema\":\"metric\",\"params\":{\"field\":\"issuer_common_name_frequency_score\",\"customLabel\":\"Frequency Score\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"issuer_common_name.raw\",\"size\":10,\"order\":\"asc\",\"orderBy\":\"1\",\"customLabel\":\"Issuer Common Name\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:x509\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.3-Frequency-Score-of-Common-Name",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.3 - Frequency Score of Common Name",
+      "visState": "{\"title\":\"Lab 2.3 - Frequency Score of Common Name\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"min\",\"schema\":\"metric\",\"params\":{\"field\":\"certificate_common_name_frequency_score\",\"customLabel\":\"Frequency Score\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"certificate_common_name.raw\",\"size\":10,\"order\":\"asc\",\"orderBy\":\"1\",\"customLabel\":\"Common Name\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:x509\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.3-Most-common-Issuers",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.3 - Most common Issuers",
+      "visState": "{\"title\":\"Lab 2.3 - Most common Issuers\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"issuer_common_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Issuer\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:x509\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-2.3-HTTPS-Metric",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 2.3 - HTTPS Metric",
+      "visState": "{\"title\":\"Lab 2.3 - HTTPS Metric\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"x509 Events\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"pcap-*\",\"query\":{\"query_string\":{\"query\":\"type:x509\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-Monitored-Events-by-Hostname",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.2 - Monitored Events by Hostname",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:7045\",\"analyze_wildcard\":true}}},\"label\":\"New Service Creation\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:4698\",\"analyze_wildcard\":true}}},\"label\":\"New Scheduled Task\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:4732\",\"analyze_wildcard\":true}}},\"label\":\"Member Added to Local Group\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:4720 -target_domain_name:SEC555 -target_domain_name:sec555.com\",\"analyze_wildcard\":true}}},\"label\":\"New Local User\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:104 AND category:\\\"Log clear\\\"\",\"analyze_wildcard\":true}}},\"label\":\"Logs Cleared\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:7045 OR event_id:4698 OR (event_id:104 AND category:\\\"Log clear\\\") OR (event_id:4720 -target_domain_name:SEC555 -target_domain_name:sec555.com) OR event_id:4732\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-New-Local-User(s)",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.2 - New Local User(s)",
+      "visState": "{\"title\":\"Lab 3.2 - New Local User(s)\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"New User Account\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"System\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"subjectusersid.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Creator\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4720 -target_domain_name:SEC555 -target_domain_name:sec555.com\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-New-Scheduled-Task",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.2 - New Scheduled Task",
+      "visState": "{\"title\":\"Lab 3.2 - New Scheduled Task\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"task_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Service\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Hosts\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Creator\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4698\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-New-Service-Creation",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.2 - New Service Creation",
+      "visState": "{\"title\":\"Lab 3.2 - New Service Creation\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"service_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Service\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Hosts\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Creator\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:7045\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-Cleared-Logs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.2 - Cleared Logs",
+      "visState": "{\"title\":\"Lab 3.2 - Cleared Logs\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"System\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"User\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:104 AND category:\\\"Log clear\\\"\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.2-Member-Added-to-Local-Group",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.2 - Member Added to Local Group",
+      "visState": "{\"title\":\"Lab 3.2 - Member Added to Local Group\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Group\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"membersid.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"User Being Added\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"subjectusersid.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"User Making Change\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.2-complete\",\"query\":{\"query_string\":{\"analyze_wildcard\":true,\"query\":\"event_id:4732\"}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-User-Logon-Map",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - User Logon Map",
+      "visState": "{\"title\":\"Lab 3.3 - User Logon Map\",\"type\":\"network\",\"params\":{\"showLabels\":true,\"showPopup\":false,\"showColorLegend\":true,\"firstNodeColor\":\"#FD7BC4\",\"secondNodeColor\":\"#00d1ff\",\"canvasBackgroundColor\":\"#FFFFFF\",\"shapeFirstNode\":\"dot\",\"shapeSecondNode\":\"box\",\"maxCutMetricSizeNode\":5000,\"maxCutMetricSizeEdge\":5000,\"minCutMetricSizeNode\":2,\"maxNodeSize\":80,\"minNodeSize\":8,\"maxEdgeSize\":20,\"minEdgeSize\":0.1,\"springConstant\":0.001,\"gravitationalConstant\":-35000},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"size_node\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"first\",\"params\":{\"field\":\"user\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"first\",\"params\":{\"field\":\"client_ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"4\",\"type\":\"count\",\"schema\":\"size_edge\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"lab3.3-complete\",\"key\":\"impersonationlevel\",\"value\":\"%%1840\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"impersonationlevel\":{\"query\":\"%%1840\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:logon -tags:machine -tags:service_account\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Failed-Logons",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - Failed Logons",
+      "visState": "{\"title\":\"Lab 3.3 - Failed Logons\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Hostname\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:logon_failure -tags:machine -tags:service_account\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"lab3.3-complete\",\"key\":\"user\",\"value\":\"ANONYMOUS LOGON\",\"disabled\":false,\"negate\":true,\"alias\":null},\"query\":{\"match\":{\"user\":{\"query\":\"ANONYMOUS LOGON\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Failed-Logons-over-Time",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - Failed Logons over Time",
+      "visState": "{\"title\":\"Lab 3.3 - Failed Logons over Time\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:logon_failure -tags:machine -tags:service_account\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Successful-Logons",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - Successful Logons",
+      "visState": "{\"title\":\"Lab 3.3 - Successful Logons\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:logon -tags:machine -tags:service_account\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"lab3.3-complete\",\"key\":\"user\",\"value\":\"ANONYMOUS LOGON\",\"disabled\":false,\"negate\":true,\"alias\":null},\"query\":{\"match\":{\"user\":{\"query\":\"ANONYMOUS LOGON\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-User-Logons-to-System-Mapping",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - User Logons to System Mapping",
+      "visState": "{\"title\":\"Lab 3.3 - User Logons to System Mapping\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Logon Count\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"client_ip.raw\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Host\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Logged In User\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Logons-Windows-Domain-Controller-Logons",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-User-Logon-Map-All",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - User Logon Map All",
+      "visState": "{\"title\":\"Lab 3.3 - User Logon Map\",\"type\":\"network\",\"params\":{\"showLabels\":true,\"showPopup\":false,\"showColorLegend\":true,\"firstNodeColor\":\"#FD7BC4\",\"secondNodeColor\":\"#00d1ff\",\"canvasBackgroundColor\":\"#FFFFFF\",\"shapeFirstNode\":\"dot\",\"shapeSecondNode\":\"box\",\"maxCutMetricSizeNode\":5000,\"maxCutMetricSizeEdge\":5000,\"minCutMetricSizeNode\":1,\"maxNodeSize\":80,\"minNodeSize\":8,\"maxEdgeSize\":20,\"minEdgeSize\":0.1,\"springConstant\":0.001,\"gravitationalConstant\":-35000},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"size_node\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"first\",\"params\":{\"field\":\"user\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"first\",\"params\":{\"field\":\"client_ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"4\",\"type\":\"count\",\"schema\":\"size_edge\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[{\"meta\":{\"negate\":false,\"index\":\"lab3.3-complete\",\"key\":\"impersonationlevel\",\"value\":\"%%1840\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"impersonationlevel\":{\"query\":\"%%1840\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}],\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:logon -tags:machine -tags:service_account\",\"analyze_wildcard\":true}},\"highlight\":{\"pre_tags\":[\"@kibana-highlighted-field@\"],\"post_tags\":[\"@/kibana-highlighted-field@\"],\"fields\":{\"*\":{}},\"require_field_match\":false,\"fragment_size\":2147483647}}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Successful-Logons-over-Time",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - Successful Logons over Time",
+      "visState": "{\"title\":\"Lab 3.3 - Successful Logons over Time\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"user\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab3.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:logon -tags:machine -tags:service_account\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"lab3.3-complete\",\"negate\":true,\"key\":\"user\",\"value\":\"ANONYMOUS LOGON\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"user\":{\"query\":\"ANONYMOUS LOGON\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-3.3-Logon-Timeline-Plotting",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 3.3 - Logon Timeline Plotting",
+      "visState": "{\"title\":\"Lab 3.3 - Logon Timeline Plotting\",\"type\":\"timelion\",\"params\":{\"expression\":\".es(\\\"tags:logon -tags:machine -tags:service_account\\\").label(\\\"Successful Logons\\\"),.es(\\\"tags:logon -tags:machine -tags:service_account\\\").movingaverage(5).label(\\\"Average Successful Logons\\\"),.es(\\\"tags:logon_failure -tags:machine -tags:service_account\\\").label(\\\"Failed Logons\\\"),.es(\\\"tags:logon_failure -tags:machine -tags:service_account\\\").movingaverage(5).label(\\\"Average Failed Logons\\\")\",\"interval\":\"1m\"},\"aggs\":[],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Systems-with-the-Most-Vulnerablities",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - Systems with the Most Vulnerablities",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"fqdn.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"risk_factor.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Medium\":\"#E5AC0E\",\"Low\":\"#64B0C8\",\"High\":\"#E24D42\",\"Critical\":\"#6D1F62\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete-nessus\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"lab4.1-complete-nessus\",\"negate\":true,\"key\":\"risk_factor.raw\",\"value\":\"None\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"risk_factor.raw\":{\"query\":\"None\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Vulnerabilities-by-Risk-Factor",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - Vulnerabilities by Risk Factor",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"risk_factor.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Risk Factor\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Medium\":\"#E5AC0E\",\"Low\":\"#447EBC\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete-nessus\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[{\"meta\":{\"index\":\"lab4.1-complete-nessus\",\"negate\":true,\"key\":\"risk_factor.raw\",\"value\":\"None\",\"disabled\":false,\"alias\":null},\"query\":{\"match\":{\"risk_factor.raw\":{\"query\":\"None\",\"type\":\"phrase\"}}},\"$state\":{\"store\":\"appState\"}}]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Systems-Using-Internal-Time-Server",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - Systems Using Internal Time Server",
+      "visState": "{\"title\":\"Lab 4.1 - Systems Using Internal Time Server\",\"type\":\"table\",\"params\":{\"perPage\":15,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"# of Time Requests\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"System\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete\",\"query\":{\"query_string\":{\"query\":\"(destination_ip:10.5.55.2 OR destination_ip:10.5.55.3) AND type:bro_conn AND destination_port:123\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-All-Internal-Systems",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - All Internal Systems",
+      "visState": "{\"title\":\"Lab 4.1 - All Internal Systems\",\"type\":\"table\",\"params\":{\"perPage\":18,\"showMeticsAtAllLevels\":false,\"showPartialRows\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"# of Connections\"}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"_term\",\"customLabel\":\"System\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete\",\"query\":{\"query_string\":{\"query\":\"tags:internal_source\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-DHCP-Logs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - DHCP Logs",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"Hostname.raw\",\"size\":20,\"order\":\"asc\",\"orderBy\":\"_term\",\"customLabel\":\"Hostname\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"IP\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "savedSearchId": "Lab-4.1-DHCP-Logs",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Default-Time-Servers",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - Default Time Servers",
+      "visState": "{\"title\":\"Lab 4.1 - Default Time Servers\",\"type\":\"histogram\",\"params\":{\"addLegend\":true,\"addTimeMarker\":false,\"addTooltip\":true,\"defaultYExtents\":false,\"mode\":\"stacked\",\"scale\":\"linear\",\"setYExtents\":false,\"shareYAxis\":true,\"times\":[],\"yAxis\":{}},\"aggs\":[{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"source_ip\",\"size\":20,\"order\":\"desc\",\"orderBy\":\"2\"}},{\"id\":\"2\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"4\",\"type\":\"filters\",\"schema\":\"group\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"time.windows.com\",\"analyze_wildcard\":true}}},\"label\":\"\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"ntp.ubuntu.com\",\"analyze_wildcard\":true}}}}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete\",\"query\":{\"query_string\":{\"query\":\"(query:time.windows.com OR query:ntp.ubuntu.com OR query:time.apple.com)\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Systems-with-Successful-Credential-Scan",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - Systems with Successful Credential Scan",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":15,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"fqdn.raw\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"System\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete-nessus\",\"query\":{\"query_string\":{\"query\":\"pluginID:10394\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-cmdlets",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.2 - cmdlets",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"cmdlets.raw\",\"size\":50,\"order\":\"asc\",\"orderBy\":\"_term\",\"customLabel\":\"cmdlet\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4103\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-Commands-by-Host",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell Commands by Host",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"histogram\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"scale\":\"linear\",\"mode\":\"stacked\",\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"Hostname.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4103 OR event_id:4104\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-Log-Sources",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell Log Sources",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"filters\",\"schema\":\"segment\",\"params\":{\"filters\":[{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:4103\",\"analyze_wildcard\":true}}},\"label\":\"Module Logging\"},{\"input\":{\"query\":{\"query_string\":{\"query\":\"event_id:4104\",\"analyze_wildcard\":true}}},\"label\":\"Script Block Logging\"}]}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4103 OR event_id:4104\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-Script-Block-Logs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell Script Block Logs",
+      "visState": "{\"title\":\"Lab 4.2 - PowerShell Script Block Logs\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Script Block Logs\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4104\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-PowerShell-Module-Logs",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.2 - PowerShell Module Logs",
+      "visState": "{\"title\":\"Lab 4.2 - PowerShell Module Logs\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{\"customLabel\":\"Module Logs\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4103\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.2-Module-Use-over-Time",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.2 - Module Use over Time",
+      "visState": "{\"title\":\"Lab 4.2 - Module Use over Time\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"command_name.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"3\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"s\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{\"vis\":{\"colors\":{\"Get-Random\":\"#2F575E\"}}}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.2-complete\",\"query\":{\"query_string\":{\"query\":\"event_id:4103\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Hosts-with-Most-Bytes-Uploaded",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.3 - Hosts with Most Bytes Uploaded",
+      "visState": "{\n  \"title\": \"Lab 4.3 - Hosts with Most Bytes Downloaded\",\n  \"type\": \"histogram\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"scale\": \"linear\",\n    \"mode\": \"stacked\",\n    \"times\": [],\n    \"addTimeMarker\": false,\n    \"defaultYExtents\": false,\n    \"setYExtents\": false,\n    \"yAxis\": {}\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"bytes_to_server\",\n        \"customLabel\": \"Bytes Download\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"source_ip\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Source IP\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"type\": \"terms\",\n      \"schema\": \"group\",\n      \"params\": {\n        \"field\": \"destination_ip\",\n        \"size\": 3,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab4.3-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"tags:internal_source AND tags:external_destination\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Hosts-with-Most-Bytes-Downloaded",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.3 - Hosts with Most Bytes Downloaded",
+      "visState": "{\n  \"title\": \"Lab 4.3 - Hosts with Most Bytes Downloaded\",\n  \"type\": \"histogram\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"scale\": \"linear\",\n    \"mode\": \"stacked\",\n    \"times\": [],\n    \"addTimeMarker\": false,\n    \"defaultYExtents\": false,\n    \"setYExtents\": false,\n    \"yAxis\": {}\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"sum\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"bytes_to_client\",\n        \"customLabel\": \"Bytes Download\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"source_ip\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Source IP\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"type\": \"terms\",\n      \"schema\": \"group\",\n      \"params\": {\n        \"field\": \"destination_ip\",\n        \"size\": 3,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab4.3-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"tags:internal_source AND tags:external_destination\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Outbound-Connections-by-Port",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.3 - Outbound Connections by Port",
+      "visState": "{\n  \"title\": \"Lab 4.3 - Outbound Connections by Port\",\n  \"type\": \"table\",\n  \"params\": {\n    \"perPage\": 10,\n    \"showPartialRows\": false,\n    \"showMeticsAtAllLevels\": false\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"destination_port\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Destination Port\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"source_ip\",\n        \"size\": 3,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Source\"\n      }\n    },\n    {\n      \"id\": \"4\",\n      \"type\": \"terms\",\n      \"schema\": \"bucket\",\n      \"params\": {\n        \"field\": \"destination_ip\",\n        \"size\": 3,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\",\n        \"customLabel\": \"Destination\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab4.3-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"tags:internal_source AND tags:external_destination\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Top-Talkers-by-#-of-Connections",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.3 - Top Talkers by # of Connections",
+      "visState": "{\n  \"title\": \"New Visualization\",\n  \"type\": \"pie\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"isDonut\": false\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"count\",\n      \"schema\": \"metric\",\n      \"params\": {}\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"source_ip\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\"\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab4.3-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"event_type:flow\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Connections-by-Duration",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.3 - Connections by Duration",
+      "visState": "{\n  \"title\": \"New Visualization\",\n  \"type\": \"line\",\n  \"params\": {\n    \"shareYAxis\": true,\n    \"addTooltip\": true,\n    \"addLegend\": true,\n    \"showCircles\": true,\n    \"smoothLines\": false,\n    \"interpolate\": \"linear\",\n    \"scale\": \"linear\",\n    \"drawLinesBetweenPoints\": true,\n    \"radiusRatio\": 9,\n    \"times\": [],\n    \"addTimeMarker\": false,\n    \"defaultYExtents\": false,\n    \"setYExtents\": false,\n    \"yAxis\": {}\n  },\n  \"aggs\": [\n    {\n      \"id\": \"1\",\n      \"type\": \"max\",\n      \"schema\": \"metric\",\n      \"params\": {\n        \"field\": \"duration\"\n      }\n    },\n    {\n      \"id\": \"2\",\n      \"type\": \"terms\",\n      \"schema\": \"group\",\n      \"params\": {\n        \"field\": \"source_ip\",\n        \"size\": 5,\n        \"order\": \"desc\",\n        \"orderBy\": \"1\"\n      }\n    },\n    {\n      \"id\": \"3\",\n      \"type\": \"date_histogram\",\n      \"schema\": \"segment\",\n      \"params\": {\n        \"field\": \"@timestamp\",\n        \"interval\": \"auto\",\n        \"customInterval\": \"2h\",\n        \"min_doc_count\": 1,\n        \"extended_bounds\": {}\n      }\n    }\n  ],\n  \"listeners\": {}\n}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\n  \"index\": \"lab4.3-complete\",\n  \"query\": {\n    \"query_string\": {\n      \"query\": \"*\",\n      \"analyze_wildcard\": true\n    }\n  },\n  \"filter\": []\n}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.3-Top-Upload-Destinations",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.3 - Top Upload Destinations",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"sum\",\"schema\":\"metric\",\"params\":{\"field\":\"bytes_to_server\",\"customLabel\":\"Bytes Uploaded\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source\"}},{\"id\":\"5\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip\",\"size\":3,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Destination\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"byte_ratio_server\",\"size\":1,\"orderAgg\":{\"id\":\"4-orderAgg\",\"type\":\"avg\",\"schema\":\"orderAgg\",\"params\":{\"field\":\"byte_ratio_server\",\"customLabel\":\"\"}},\"order\":\"desc\",\"orderBy\":\"custom\",\"customLabel\":\"Ratio Upload\"}},{\"id\":\"6\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"byte_ratio_client\",\"size\":5,\"orderAgg\":{\"id\":\"6-orderAgg\",\"type\":\"avg\",\"schema\":\"orderAgg\",\"params\":{\"field\":\"byte_ratio_client\",\"customLabel\":\"\"}},\"order\":\"desc\",\"orderBy\":\"custom\",\"customLabel\":\"Ratio Download\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.3-complete\",\"query\":{\"query_string\":{\"query\":\"tags:internal_source AND tags:external_destination\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Signatures-by-Source-and-Dest",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Signatures by Source and Dest",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"signature.raw\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Signature\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source\"}},{\"id\":\"4\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Destination\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"type:suricata AND event_type:alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Signatures-by-Destination-Port",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Signatures by Destination Port",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"signature.raw\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Signature\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"destination_port\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Destination Port\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Top-Signatures",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Top Signatures",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"pie\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"isDonut\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"segment\",\"params\":{\"field\":\"signature.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"type:suricata AND event_type:alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Alerts-over-Time-by-Destination",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Alerts over Time by Destination",
+      "visState": "{\"title\":\"Lab 5.1 - Alerts over Time by Destination\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"destination_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"type:suricata AND event_type:alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Alerts-over-Time-by-Source",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Alerts over Time by Source",
+      "visState": "{\"title\":\"Lab 5.1 - Alerts over Time by Source\",\"type\":\"line\",\"params\":{\"shareYAxis\":true,\"addTooltip\":true,\"addLegend\":true,\"showCircles\":true,\"smoothLines\":false,\"interpolate\":\"linear\",\"scale\":\"linear\",\"drawLinesBetweenPoints\":true,\"radiusRatio\":9,\"times\":[],\"addTimeMarker\":false,\"defaultYExtents\":false,\"setYExtents\":false,\"yAxis\":{}},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"group\",\"params\":{\"field\":\"source_ip\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\"}},{\"id\":\"2\",\"type\":\"date_histogram\",\"schema\":\"segment\",\"params\":{\"field\":\"@timestamp\",\"interval\":\"auto\",\"customInterval\":\"2h\",\"min_doc_count\":1,\"extended_bounds\":{}}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"type:suricata AND event_type:alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Signatures-by-Source-Port",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Signatures by Source Port",
+      "visState": "{\"title\":\"Lab 5.1 - Signatures by Destination Port\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"signature.raw\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Signature\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"source_port\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Source Port\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-Signatures-by-Count",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - Signatures by Count",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"table\",\"params\":{\"perPage\":10,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"signature.raw\",\"size\":50,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"Signature\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"*\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-5.1-#-of-Alerts",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 5.1 - # of Alerts",
+      "visState": "{\"title\":\"New Visualization\",\"type\":\"metric\",\"params\":{\"handleNoResults\":true,\"fontSize\":60},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab5.1-complete-*\",\"query\":{\"query_string\":{\"query\":\"type:suricata AND event_type:alert\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  },
+  {
+    "_id": "Lab-4.1-Scanned-with-Credentials",
+    "_type": "visualization",
+    "_source": {
+      "title": "Lab 4.1 - Scanned with Credentials",
+      "visState": "{\"title\":\"Lab 4.1 - Scanned with Credentials\",\"type\":\"table\",\"params\":{\"perPage\":15,\"showPartialRows\":false,\"showMeticsAtAllLevels\":false},\"aggs\":[{\"id\":\"1\",\"type\":\"count\",\"schema\":\"metric\",\"params\":{}},{\"id\":\"2\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"fqdn.raw\",\"size\":15,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"System\"}},{\"id\":\"3\",\"type\":\"terms\",\"schema\":\"bucket\",\"params\":{\"field\":\"ip.raw\",\"size\":5,\"order\":\"desc\",\"orderBy\":\"1\",\"customLabel\":\"IP\"}}],\"listeners\":{}}",
+      "uiStateJSON": "{}",
+      "description": "",
+      "version": 1,
+      "kibanaSavedObjectMeta": {
+        "searchSourceJSON": "{\"index\":\"lab4.1-complete-nessus\",\"query\":{\"query_string\":{\"query\":\"pluginID:10394\",\"analyze_wildcard\":true}},\"filter\":[]}"
+      }
+    }
+  }
+]
